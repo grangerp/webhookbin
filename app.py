@@ -2,7 +2,7 @@ import json
 import os
 from pathlib import Path
 
-from flask import Flask, request
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -14,7 +14,9 @@ def post_bin(path):
     path = (BASE_PATH / path).with_suffix(".json")
 
     with path.open("w") as opened_path:
-        json.dump(request.json, opened_path)
+        json.dump(
+            {"request": request.json, "headers": dict(request.headers)}, opened_path
+        )
     return "ok"
 
 
@@ -26,4 +28,4 @@ def get_bin(path):
         return "Not found", 404
 
     with path.open("r") as opened_path:
-        return opened_path.read()
+        return jsonify(json.load(opened_path))
