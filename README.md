@@ -12,8 +12,15 @@ $ http :9000/qwerty a=1 b=2
 ok
 $ http :9000/qwerty
 {
-    "a": "1",
-    "b": "2"
+    "headers": {
+        "Accept": "application/json, */*",
+        ...
+        "X-Waws-Unencoded-Url": "/test1"
+    },
+    request: {
+        "a": "1",
+        "b": "2"
+    }
 }
 ```
 
