@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   annotations:
-    getambassador.io/rolloutId: 39ebecb1-edd8-41fa-8be2-2167694a2ed7
+    getambassador.io/rolloutId: a24f40d7-5a72-41a9-a2ce-8510701e7aec
   creationTimestamp: null
   labels:
     app.kubernetes.io/instance: webhookbin-rollout
@@ -65,7 +65,7 @@ spec:
       - env:
         - name: PORT
           value: "80"
-        image: grangerp/webhookbin:0.1
+        image: grangerp/webhookbin:0.2
         imagePullPolicy: IfNotPresent
         name: webhookbin-rollout
         ports:
