@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webhookbin
+  labels:
+    app.kubernetes.io/name: webhookbin
+    app.kubernetes.io/instance: webhookbin
+    app.kubernetes.io/version: "1.16.0"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: webhookbin
+    app.kubernetes.io/instance: webhookbin
