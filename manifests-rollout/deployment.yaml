@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhookbin-rollout
+  labels:
+    app.kubernetes.io/name: webhookbin-rollout
+    app.kubernetes.io/instance: webhookbin-rollout
+    app.kubernetes.io/version: "1.16.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: webhookbin-rollout
+      app.kubernetes.io/instance: webhookbin-rollout
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: webhookbin-rollout
+        app.kubernetes.io/instance: webhookbin-rollout
+    spec:
+      securityContext:
+        {}
+      containers:
+        - name: webhookbin-rollout
+          securityContext:
+            {}
+          image: "grangerp/webhookbin:latest"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: PORT
+              value: "80"
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          resources:
+            {}
+
