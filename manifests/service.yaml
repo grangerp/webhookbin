@@ -6,6 +6,11 @@ metadata:
     app.kubernetes.io/name: webhookbin
     app.kubernetes.io/instance: webhookbin
     app.kubernetes.io/version: "1.16.0"
+  annotations:
+    a8r.io/description: "Record webhook"
+    a8r.io/owner: "@grangerp"
+    a8r.io/bugs: "https://github.com/grangerp/webhookbin/issues"
+    a8r.io/repository: "https://github.com/grangerp/webhookbin"
 spec:
   type: ClusterIP
   ports:
