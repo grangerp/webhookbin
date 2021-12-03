@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhookbin
+spec:
+  template:
+    spec:
+      containers:
+        - name: webhookbin
+          image: "grangerp/webhookbin:dev"
