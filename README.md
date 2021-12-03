@@ -31,3 +31,9 @@ $ docker run -e PORT=8000 -e WORKERS=2 -e OUTDIR=/tmp -p 8000:8000 webhookbin
 ```
 
 Docker image available at: https://hub.docker.com/r/grangerp/webhookbin
+
+## Deployment with kustomize 
+
+```sh
+ k apply -k manifests/overlays/ENV_NAME
+```
